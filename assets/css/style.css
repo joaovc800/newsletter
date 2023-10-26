@@ -19,3 +19,17 @@
 .bg-gray{
     background-color: #EAECEE;
 }
+
+span[aria-label="Previous"],span[aria-label="Next"]{
+    font-size: 3rem !important;
+}
+
+.owl-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button[role="presentation"]{
+    width: 40px;
+}
