@@ -10,21 +10,40 @@ console.log(jsonVideos);
 
 divCarouselVideos.innerHTML = carouselVideos(jsonVideos)
 
-setTimeout(() => {
-    $('.owl-carousel').owlCarousel({
-        center:true,
-        loop: true,
-        arrows: false,
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1500,
-        mobileFirst: true,
-        dots: false,
-        margin: 10
-    })
-}, 300)
+$(document).ready(function(){
+    setTimeout(() => {
+        
+    
+        const owl = $('.owl-carousel').owlCarousel({
+            center:true,
+            loop: true,
+            arrows: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplaySpeed: 1500,
+            mobileFirst: true,
+            dots: true,
+            lazyLoad: true,
+            margin: 10,
+            items:3,
+            nav:true,
+        })
+
+        console.log(owl.on);
+        
+        owl.on('mousemove', '.owl-stage', function (e) {
+            console.log(e.deltaY);
+            /* if (e.deltaY>0) {
+                owl.trigger('next.owl');
+            } else {
+                owl.trigger('prev.owl');
+            }
+            e.preventDefault() */;
+        });
+
+    }, 500);
+
+  });
 
 /* center: true,
         items:2,
