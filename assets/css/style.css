@@ -1,0 +1,21 @@
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.img-flut{
+    float: left;
+    border: transparent thin solid;
+    padding: 5px;
+    margin: 0px 10px 10px 0;
+    max-width: 200px;
+}
+
+.card-link{
+    text-decoration: none;
+    color: #57007B;
+}
+
+.bg-gray{
+    background-color: #EAECEE;
+}
