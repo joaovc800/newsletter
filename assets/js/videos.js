@@ -24,23 +24,30 @@ export async function Highlights(data){
     
     var highlights = ``
     data.forEach(json => {
+
+        var split = json.url.split('/embed/')
+        var link = `${split[0]}/watch?v=${split[1]}`
+        
         highlights += `
-            <div class="card shadow">
-                <div class="card-horizontal">
-                    <div class="card-body">
-                        <iframe class="rounded"
-                            src="${json.url}"
-                            height="180"
-                            width="300"
-                            title="YouTube video player" 
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen
-                        >
-                        </iframe> 
-                        <h4 class="card-title">${json.title}</h4>
-                        <p class="card-text">${json.describe}</p>
-                        <p class="text-end fw-bold"><a href="#" class="card-link text-end">Read More →</a></p>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card shadow">
+                    <div class="card-horizontal">
+                        <div class="card-body">
+                            <iframe class="w-100 rounded"
+                                src="${json.url}"
+                                height="180"
+                                title="YouTube video player" 
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                            >
+                            </iframe> 
+                            <h4 class="card-title">${json.title}</h4>
+                            <p class="card-text">${json.describe}</p>
+                            <p class="text-end fw-bold">
+                                <a href="${link}" target="_blank" class="card-link text-end">Read More →</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

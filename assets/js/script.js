@@ -1,9 +1,11 @@
 import { carouselVideos, Highlights } from './videos.js'
 import { routes } from './routes.js'
+import { loading } from './loading.js'
 
 const divCarouselVideos = document.getElementById('carousel-videos')
 const divHighlights = document.getElementById('highlights')
 
+loading(true)
 const requestVideos = await fetch(routes.videos)
 const jsonVideos = await requestVideos.json()
 
@@ -21,9 +23,8 @@ const owl = $('.owl-carousel').owlCarousel({
     loop: true,
     arrows: true,
     dots: true,
-    lazyLoad: true,
     margin: 10,
-    items:3,
+    items:4,
     nav:true,
     responsiveClass:true,
     responsive:{
@@ -36,19 +37,10 @@ const owl = $('.owl-carousel').owlCarousel({
             nav:true
         },
         1000:{
-            items:3,
+            items:4,
             nav:true,
         }
     }
 })
 
-
-owl.on('mousewheel', 'ytp-cued-thumbnail-overlay-image', function (e) {
-    console.log(e);
-/* if (e.deltaY>0) {
-        owl.trigger('next.owl');
-    } else {
-        owl.trigger('prev.owl');
-    }
-    e.preventDefault(); */
-});
+loading(false, 4000)
